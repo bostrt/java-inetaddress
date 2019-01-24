@@ -26,11 +26,15 @@ public class Main {
     }
     while (true) {
       try {
+	long start = System.currentTimeMillis();
         InetAddress addr = InetAddress.getByName(hostname);
+	long finish = System.currentTimeMillis();
         if (debug) {
           Date now = new Date();
           System.out.println(now.toString());
           System.out.println(hostname + " => " + addr.toString());
+	  System.out.println("Time to resolve (ms) => " + (finish - start));
+	  System.out.println();
 	}	
       } catch (Exception e) {
           Date now = new Date();
